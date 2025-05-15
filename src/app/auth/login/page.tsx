@@ -19,6 +19,7 @@ import { toast } from "sonner";
 import { useEffect } from "react";
 import { SimpleCard } from "@/components/ui/simple-card";
 import { API_BASE } from "@/lib/api";
+import { Hodinky25Logo } from "@/components/ui/hodinky25-logo";
 
 const formSchema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -73,7 +74,10 @@ export default function LoginPage() {
   }, [router]);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted dark:bg-background p-4">
+    <div className="flex min-h-screen items-center justify-center bg-muted p-4">
+      <div className="absolute top-8 left-0 right-0 flex justify-center z-10">
+        <Hodinky25Logo />
+      </div>
       <SimpleCard>
         <div className="text-center">
           <h1 className="text-2xl font-bold">Welcome back</h1>

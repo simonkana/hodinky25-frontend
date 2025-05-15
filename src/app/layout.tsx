@@ -10,7 +10,10 @@ const fontSans = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Hodinky25",
+  title: {
+    default: "Hodinky25",
+    template: "%s | Hodinky25",
+  },
   description: "Modern watch marketplace",
 };
 
