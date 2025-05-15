@@ -58,12 +58,12 @@ export default function LoginPage() {
         localStorage.setItem("token", data.token);
       }
 
-      toast("You have been logged in successfully!");
+      toast.success("You have been logged in successfully!");
 
       // Redirect to dashboard
       router.push("/dashboard");
     } catch (error) {
-      toast("Invalid email or password. Please try again.");
+      toast.error("Invalid email or password. Please try again.");
     }
   }
 

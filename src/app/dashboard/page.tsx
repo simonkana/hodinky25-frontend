@@ -49,7 +49,7 @@ export default function DashboardPage() {
       } catch (error) {
         if (error instanceof Error && error.name !== "AbortError") {
           console.error("Error fetching user data:", error);
-          toast("Failed to load user data. Please log in again.");
+          toast.error("Failed to load user data. Please log in again.");
           router.push("/auth/login");
         }
       }

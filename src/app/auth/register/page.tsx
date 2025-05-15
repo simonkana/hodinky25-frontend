@@ -70,12 +70,12 @@ export default function RegisterPage() {
         throw new Error(errorData.message || "Registration failed");
       }
 
-      toast("Your account has been created successfully!");
+      toast.success("Your account has been created successfully!");
 
       // Redirect to login
       router.push("/auth/login");
     } catch (error) {
-      toast(
+      toast.error(
         error instanceof Error
           ? error.message
           : "Registration failed. Please try again."

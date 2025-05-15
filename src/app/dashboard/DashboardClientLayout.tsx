@@ -56,7 +56,7 @@ export default function DashboardClientLayout({
       }
     } catch (error) {
       console.error("Error during logout:", error);
-      toast("Failed to logout user");
+      toast.error("Failed to logout user");
     }
   };
   return (
