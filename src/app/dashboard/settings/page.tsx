@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 export default function SettingsPage() {
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Settings</h1>
+      <h1 className="text-2xl font-bold mb-4">Nastavení</h1>
       <p className="text-muted-foreground">
-        This is the Settings page. Add your settings UI here.
+        Toto je stránka s nastavením. Upravte zde své osobní údaje a preference.
       </p>
     </div>
   );

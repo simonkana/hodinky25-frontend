@@ -22,8 +22,8 @@ import { API_BASE } from "@/lib/api";
 import { Hodinky25Logo } from "@/components/ui/hodinky25-logo";
 
 const formSchema = z.object({
-  username: z.string().min(1, "Username is required"),
-  password: z.string().min(1, "Password is required"),
+  username: z.string().min(1, "Uživatelské jméno je povinné"),
+  password: z.string().min(1, "Heslo je povinné"),
 });
 
 export default function LoginPage() {
@@ -48,7 +48,7 @@ export default function LoginPage() {
       });
 
       if (!response.ok) {
-        throw new Error("Login failed");
+        throw new Error("Přihlášení se nezdařilo");
       }
 
       const data = await response.json();
@@ -58,12 +58,12 @@ export default function LoginPage() {
         localStorage.setItem("token", data.token);
       }
 
-      toast.success("You have been logged in successfully!");
+      toast.success("Byli jste úspěšně přihlášeni!");
 
       // Redirect to dashboard
       router.push("/dashboard");
     } catch (error) {
-      toast.error("Invalid email or password. Please try again.");
+      toast.error("Nesprávné přihlašovací údaje. Zkuste to prosím znovu.");
     }
   }
 
@@ -80,9 +80,9 @@ export default function LoginPage() {
       </div>
       <SimpleCard>
         <div className="text-center">
-          <h1 className="text-2xl font-bold">Welcome back</h1>
+          <h1 className="text-2xl font-bold">Vítejte zpět</h1>
           <p className="text-muted-foreground">
-            Enter your credentials to sign in
+            Zadejte své přihlašovací údaje
           </p>
         </div>
 
@@ -93,7 +93,7 @@ export default function LoginPage() {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>Uživatelské jméno</FormLabel>
                   <FormControl>
                     <Input placeholder="johndoe" {...field} />
                   </FormControl>
@@ -107,12 +107,12 @@ export default function LoginPage() {
               render={({ field }) => (
                 <FormItem>
                   <div className="flex items-center justify-between">
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>Heslo</FormLabel>
                     <Link
                       href="/auth/forgot-password"
                       className="text-sm font-medium text-primary hover:underline"
                     >
-                      Forgot password?
+                      Zapomněli jste heslo?
                     </Link>
                   </div>
                   <FormControl>
@@ -123,18 +123,15 @@ export default function LoginPage() {
               )}
             />
             <Button type="submit" className="w-full">
-              Sign In
+              Přihlásit se
             </Button>
           </form>
         </Form>
 
-        <p className="text-center text-sm text-muted-foreground">
-          Don&apos;t have an account?{" "}
-          <Link
-            href="/auth/register"
-            className="font-medium text-primary hover:underline"
-          >
-            Sign up
+        <p className="mt-4 text-center text-sm text-muted-foreground">
+          Nemáte účet?{" "}
+          <Link href="/auth/register" className="underline hover:text-primary">
+            Zaregistrujte se
           </Link>
         </p>
       </SimpleCard>

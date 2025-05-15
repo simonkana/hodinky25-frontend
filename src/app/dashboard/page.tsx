@@ -63,42 +63,49 @@ export default function DashboardPage() {
   return (
     <>
       <section className="mb-10">
+        <h1 className="text-2xl font-bold mb-4">Vítejte v přehledu</h1>
+        <p className="text-muted-foreground">
+          Toto je váš osobní přehled. Najdete zde základní informace o svém účtu
+          a aktivitách na Hodinky25.
+        </p>
+      </section>
+      <section className="mb-10">
         <h2 className="text-3xl font-semibold mb-2 text-foreground">
-          Welcome back,{" "}
-          <span className="text-primary">{user.username || "User"}</span>!
+          Vítejte zpět,{" "}
+          <span className="text-primary">{user.username || "Uživatel"}</span>!
         </h2>
         <p className="text-muted-foreground text-base">
-          You are logged in as {user.email || "your email"}
+          Jste přihlášen jako {user.email || "váš email"}
         </p>
       </section>
       <section className="mb-10">
         <h3 className="text-lg font-medium mb-4 text-foreground">
-          Your Activity
+          Vaše aktivita
         </h3>
         <div className="grid gap-6 md:grid-cols-3">
           <Card className="p-6 border-none shadow-md bg-muted/60 hover:shadow-lg transition-shadow">
-            <h4 className="font-medium mb-1 text-primary">Listings</h4>
+            <h4 className="font-medium mb-1 text-primary">Inzeráty</h4>
             <p className="text-3xl font-bold text-foreground">0</p>
-            <p className="text-sm text-muted-foreground">Active listings</p>
+            <p className="text-sm text-muted-foreground">Aktivní inzeráty</p>
           </Card>
           <Card className="p-6 border-none shadow-md bg-muted/60 hover:shadow-lg transition-shadow">
-            <h4 className="font-medium mb-1 text-primary">Favorites</h4>
+            <h4 className="font-medium mb-1 text-primary">Oblíbené</h4>
             <p className="text-3xl font-bold text-foreground">0</p>
-            <p className="text-sm text-muted-foreground">Saved items</p>
+            <p className="text-sm text-muted-foreground">Uložené položky</p>
           </Card>
           <Card className="p-6 border-none shadow-md bg-muted/60 hover:shadow-lg transition-shadow">
-            <h4 className="font-medium mb-1 text-primary">Messages</h4>
+            <h4 className="font-medium mb-1 text-primary">Zprávy</h4>
             <p className="text-3xl font-bold text-foreground">0</p>
-            <p className="text-sm text-muted-foreground">Unread messages</p>
+            <p className="text-sm text-muted-foreground">Nepřečtené zprávy</p>
           </Card>
         </div>
       </section>
       {/* Chart placeholder */}
       <section>
-        <h3 className="text-lg font-medium mb-4 text-foreground">Overview</h3>
+        <h3 className="text-lg font-medium mb-4 text-foreground">Přehled</h3>
         <div className="rounded-xl bg-card/80 border border-border/60 p-6 flex flex-col items-center justify-center min-h-[220px]">
           <span className="text-muted-foreground mb-2">
-            (Chart coming soon)
+            (Graf brzy bude k dispozici)
           </span>
           <svg
             width="180"

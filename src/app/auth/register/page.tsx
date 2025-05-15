@@ -23,20 +23,20 @@ import { Hodinky25Logo } from "@/components/ui/hodinky25-logo";
 const formSchema = z
   .object({
     username: z.string().min(1, {
-      message: "Username is required.",
+      message: "Uživatelské jméno je povinné.",
     }),
     email: z.string().email({
-      message: "Please enter a valid email address.",
+      message: "Zadejte platnou e-mailovou adresu.",
     }),
     password: z.string().min(6, {
-      message: "Password must be at least 6 characters.",
+      message: "Heslo musí mít alespoň 6 znaků.",
     }),
     confirmPassword: z.string().min(6, {
-      message: "Please confirm your password.",
+      message: "Zadejte znovu heslo pro potvrzení.",
     }),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Passwords don't match",
+    message: "Hesla se neshodují",
     path: ["confirmPassword"],
   });
 
@@ -67,10 +67,10 @@ export default function RegisterPage() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "Registration failed");
+        throw new Error(errorData.message || "Registrace selhala");
       }
 
-      toast.success("Your account has been created successfully!");
+      toast.success("Váš účet byl úspěšně vytvořen!");
 
       // Redirect to login
       router.push("/auth/login");
@@ -90,10 +90,8 @@ export default function RegisterPage() {
       </div>
       <SimpleCard>
         <div className="text-center">
-          <h1 className="text-2xl font-bold">Create an account</h1>
-          <p className="text-muted-foreground">
-            Enter your details to get started
-          </p>
+          <h1 className="text-2xl font-bold">Vytvořit účet</h1>
+          <p className="text-muted-foreground">Zadejte své údaje a začněte</p>
         </div>
 
         <Form {...form}>
@@ -103,7 +101,7 @@ export default function RegisterPage() {
               name="username"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Username</FormLabel>
+                  <FormLabel>Uživatelské jméno</FormLabel>
                   <FormControl>
                     <Input placeholder="johndoe" {...field} />
                   </FormControl>
@@ -116,7 +114,7 @@ export default function RegisterPage() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel>E-mail</FormLabel>
                   <FormControl>
                     <Input placeholder="name@example.com" {...field} />
                   </FormControl>
@@ -129,7 +127,7 @@ export default function RegisterPage() {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel>Heslo</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="••••••••" {...field} />
                   </FormControl>
@@ -142,7 +140,7 @@ export default function RegisterPage() {
               name="confirmPassword"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Confirm Password</FormLabel>
+                  <FormLabel>Potvrzení hesla</FormLabel>
                   <FormControl>
                     <Input type="password" placeholder="••••••••" {...field} />
                   </FormControl>
@@ -151,18 +149,15 @@ export default function RegisterPage() {
               )}
             />
             <Button type="submit" className="w-full">
-              Create Account
+              Zaregistrovat se
             </Button>
           </form>
         </Form>
 
-        <p className="text-center text-sm text-muted-foreground">
-          Already have an account?{" "}
-          <Link
-            href="/auth/login"
-            className="font-medium text-primary hover:underline"
-          >
-            Sign in
+        <p className="mt-4 text-center text-sm text-muted-foreground">
+          Už máte účet?{" "}
+          <Link href="/auth/login" className="underline hover:text-primary">
+            Přihlaste se
           </Link>
         </p>
       </SimpleCard>

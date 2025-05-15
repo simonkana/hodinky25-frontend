@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 export default function ListingsPage() {
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Listings</h1>
+      <h1 className="text-2xl font-bold mb-4">Inzeráty</h1>
       <p className="text-muted-foreground">
-        This is the Listings page. Add your listings management UI here.
+        Toto je stránka s vašimi inzeráty. Spravujte zde své nabídky hodinek.
       </p>
     </div>
   );

@@ -20,11 +20,11 @@ import { API_BASE } from "@/lib/api";
 import { Hodinky25Logo } from "@/components/ui/hodinky25-logo";
 
 const navItems = [
-  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/dashboard/listings", label: "Listings", icon: List },
-  { href: "/dashboard/favorites", label: "Favorites", icon: Heart },
-  { href: "/dashboard/messages", label: "Messages", icon: MessageCircle },
-  { href: "/dashboard/settings", label: "Settings", icon: Settings },
+  { href: "/dashboard", label: "Přehled", icon: LayoutDashboard },
+  { href: "/dashboard/listings", label: "Inzeráty", icon: List },
+  { href: "/dashboard/favorites", label: "Oblíbené", icon: Heart },
+  { href: "/dashboard/messages", label: "Zprávy", icon: MessageCircle },
+  { href: "/dashboard/settings", label: "Nastavení", icon: Settings },
 ];
 
 export default function DashboardClientLayout({
@@ -110,7 +110,7 @@ export default function DashboardClientLayout({
           aria-label="Logout"
         >
           <LogOut className="w-5 h-5 mr-2" aria-hidden="true" />
-          Logout
+          Odhlásit se
         </Button>
       </aside>
       {/* Main content area */}

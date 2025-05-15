@@ -14,7 +14,8 @@ export const metadata: Metadata = {
     default: "Hodinky25",
     template: "%s | Hodinky25",
   },
-  description: "Modern watch marketplace",
+  description:
+    "Stylové tržiště pro sběratele i nadšence. Nakupujte, prodávejte a spravujte své hodinky bezpečně a s přehledem.",
 };
 
 export default function RootLayout({
@@ -23,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="cs" suppressHydrationWarning>
       <body className={`${fontSans.className} antialiased`}>
         <ThemeProvider
           attribute="class"

@@ -7,9 +7,9 @@ export const metadata: Metadata = {
 export default function FavoritesPage() {
   return (
     <div>
-      <h1 className="text-2xl font-bold mb-4">Favorites</h1>
+      <h1 className="text-2xl font-bold mb-4">Oblíbené</h1>
       <p className="text-muted-foreground">
-        This is the Favorites page. Add your favorites UI here.
+        Toto je stránka s oblíbenými inzeráty. Najdete zde své uložené hodinky.
       </p>
     </div>
   );
