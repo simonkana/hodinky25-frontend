@@ -51,12 +51,13 @@ export default function DashboardClientLayout({
       if (response.ok) {
         localStorage.removeItem("token");
         router.push("/auth/login");
+        toast.success("Byli jste úspěšně odhlášeni!");
       } else {
         throw new Error("Failed to logout user");
       }
     } catch (error) {
       console.error("Error during logout:", error);
-      toast.error("Failed to logout user");
+      toast.error("Chyba při odhlašování. Zkuste to prosím znovu.");
     }
   };
   return (
@@ -109,7 +110,7 @@ export default function DashboardClientLayout({
           onClick={handleLogout}
           aria-label="Logout"
         >
-          <LogOut className="w-5 h-5 mr-2" aria-hidden="true" />
+          {/* <LogOut className="w-5 h-5 mr-2" aria-hidden="true" /> */}
           Odhlásit se
         </Button>
       </aside>
