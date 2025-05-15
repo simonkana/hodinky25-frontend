@@ -17,6 +17,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { toast } from "sonner";
 import { SimpleCard } from "@/components/ui/simple-card";
+import { API_BASE } from "@/lib/api";
 
 const formSchema = z
   .object({
@@ -55,16 +56,13 @@ export default function RegisterPage() {
     try {
       const { confirmPassword, ...registrationData } = values;
 
-      const response = await fetch(
-        "http://localhost:8080/api/v1/auth/register",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(registrationData),
-        }
-      );
+      const response = await fetch(`${API_BASE}/auth/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(registrationData),
+      });
 
       if (!response.ok) {
         const errorData = await response.json();

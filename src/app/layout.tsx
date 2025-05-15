@@ -3,7 +3,6 @@ import { Poppins } from "next/font/google";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
-import { ModeToggle } from "@/components/ui/mode-toggle";
 
 const fontSans = Poppins({
   subsets: ["latin"],
@@ -31,9 +30,6 @@ export default function RootLayout({
         >
           {children}
           <Toaster />
-          <div className="fixed bottom-4 right-4 z-50">
-            <ModeToggle />
-          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -18,6 +18,7 @@ import Link from "next/link";
 import { toast } from "sonner";
 import { useEffect } from "react";
 import { SimpleCard } from "@/components/ui/simple-card";
+import { API_BASE } from "@/lib/api";
 
 const formSchema = z.object({
   username: z.string().min(1, "Username is required"),
@@ -37,7 +38,7 @@ export default function LoginPage() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     try {
-      const response = await fetch("http://localhost:8080/api/v1/auth/login", {
+      const response = await fetch(`${API_BASE}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
